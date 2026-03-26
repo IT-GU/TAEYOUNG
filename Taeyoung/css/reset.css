@@ -1,0 +1,27 @@
+
+
+body,div,ul,li,dl,dd,dt,ol,h1,h2,h3,h4,h5,h6,p,select,button
+{
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    text-decoration: none;
+}
+
+img {
+    border: 0 none;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus,
+button:active {
+  outline: none;
+  box-shadow: none;
+}

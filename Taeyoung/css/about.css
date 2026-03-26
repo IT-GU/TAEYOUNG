@@ -1,0 +1,190 @@
+
+  .section-title {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+
+  .section-title span { color: var(--red); }
+
+
+  /* ── 회사소개 ── */
+  .about-section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 90px 5%;
+    text-align: center;
+  }
+
+  .about-section h2 {
+    padding-bottom: 3%;
+  }
+
+  .about-text {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .about-text .intro {
+    font-size: 18px;
+    line-height: 2;
+    margin-bottom: 20px;
+  }
+
+  .about-text .sub{
+    font-size: 14px;
+    color: var(--silver);
+  }
+  .about-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .divider {
+    margin: 0 auto;  
+    width: 1px;
+    height: 100px; 
+    background: var(--silver);
+  }
+
+  .about-img img{
+    height: 70px;
+    width: auto;
+  }
+
+  /* ── 사업분야 ── */
+  .business-section {
+    background: var(--white);
+    padding: 90px 5%;
+  }
+  .business-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .business-header {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+  .business-header .section-divider {
+    margin: 0 auto;
+  }
+
+  /* 허브 다이어그램 */
+  .hub-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    aspect-ratio: 1;
+  }
+
+  /* SVG 연결선 레이어 */
+  .hub-wrap svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 중앙 원 */
+  .hub-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 0 0 14px rgba(44,59,82,0.09), 0 8px 32px rgba(44,59,82,0.3);
+  }
+  .hub-center-icon { font-size: 30px; margin-bottom: 6px; }
+  .hub-center-text {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* 가지 카드 */
+  .branch-card {
+    position: absolute;
+    width: 128px;
+    background: var(--white);
+    border-radius: 14px;
+    padding: 18px 12px;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(44,59,82,0.10);
+    border: 1.5px solid rgba(44,59,82,0.07);
+    transform: translate(-50%, -50%);
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: default;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .branch-card:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+    box-shadow: 0 10px 36px rgba(44,59,82,0.18);
+  }
+
+  .branch-card.b2:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+    box-shadow: 0 10px 36px rgba(169,46,43,0.3);
+  }
+
+  .branch-icon { font-size: 26px; margin-bottom: 8px; }
+  .branch-title { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+
+
+  /* 위치 (700x700 기준 퍼센트) */
+  .b1 { top: 25%; left: 25%; } /* 위 왼쪽  */
+  .b2 { 
+      top: 14%; 
+      left: 50%; 
+      border: 1.5px solid var(--red); 
+      box-shadow: 0 4px 24px rgba(169,46,43,0.2);
+    } /* 위 중앙  */
+  .b3 { top: 25%; left: 75%; } /* 위 오른쪽*/
+  .b4 { top: 50%; left: 14%; } /* 왼쪽     */
+  .b5 { top: 50%; left: 86%; } /* 오른쪽   */
+  .b6 { top: 75%; left: 25%; } /* 아래 왼쪽*/
+  .b7 { top: 75%; left: 75%; } /* 아래 오른쪽*/
+
+  .b1 .branch-icon { color: #4a8fd4; }
+  .b2 .branch-icon { color: #e8a835; }
+  .b3 .branch-icon { color: #5dbb8a; }
+  .b4 .branch-icon { color: #e86c5d; }
+  .b5 .branch-icon { color: #9b7de0; }
+  .b6 .branch-icon { color: #45c4b0; }
+  .b7 .branch-icon { color: #45c4b0; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translate(-50%, calc(-50% + 16px)); }
+    to   { opacity: 1; transform: translate(-50%, -50%); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; r: 68; }
+    50%       { opacity: 0.1; r: 78; }
+  }
+  .pulse { animation: pulse 2.4s ease-in-out infinite; }
+
+  /* ── 반응형 ── */
+  @media (max-width: 768px) {
+    .hub-wrap { max-width: 320px; }
+    .branch-card { width: 82px; padding: 10px 6px; }
+    .branch-title { font-size: 10px; }
+    .hub-center { width: 80px; height: 80px; }
+    .hub-center-icon { font-size: 20px; }
+    .hub-center-text { font-size: 10px; }
+  }
