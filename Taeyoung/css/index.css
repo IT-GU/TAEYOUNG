@@ -208,12 +208,70 @@
 }
 .more-btn:hover { color: var(--accent); }
 
-.section-label {
+/* ── 공지사항, 보도자료 테이블 ── */
+.press-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.press-table thead tr {
+  background: var(--navy);
+  color: var(--white);
+}
+.press-table thead th {
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+}
+.press-table thead th:first-child { width: 70px; text-align: center; }
+.press-table thead th:last-child  { width: 160px; }
+
+.press-table tbody tr {
+  border-bottom: 1px solid #e8eef5;
+  transition: background 0.2s;
+}
+.press-table tbody tr:hover {
+  background: #f0f5fb;
+}
+.press-table tbody td {
+  padding: 18px 20px;
+  font-size: 14px;
+  color: var(--text-dark);
+  vertical-align: middle;
+}
+.press-table tbody td:first-child {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 13px;
+}
+
+
+/* ── 제목 링크 ── */
+.press-title-link {
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: calc(100% - 40px); 
+  gap: 10px;
+  color: var(--text-dark);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+  line-height: 1.5;
 }
+.press-title-link:hover {
+  color: var(--accent);
+}
+
+/* 출처 / 날짜 */
+.press-source {
+  font-size: 12px;
+  color: var(--text-light);
+}
+.press-date {
+  font-size: 13px;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
 
 /* ── 통계 ── */
 .stats-section {
