@@ -1,0 +1,201 @@
+body {
+     font-family: 'Pretendard', sans-serif;
+}
+
+/* ── 회사소개 ── */
+.about-section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 90px 5%;
+    text-align: center;
+}
+
+.about-section h2 {
+    padding-bottom: 3%;
+}
+
+.about-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.about-text .intro {
+    font-size: 18px;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+.about-text .sub{
+    font-size: 14px;
+    color: var(--silver);
+}
+.about-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divider {
+    margin: 0 auto;  
+    width: 1px;
+    height: 100px; 
+    background: var(--silver);
+}
+
+.about-img img{
+    height: 70px;
+    width: auto;
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+/* ── 사업분야 ── */
+.business-section {
+    background: var(--white);
+    padding: 0px 70px 90px;
+}
+.business-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.business-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+.business-header .section-divider {
+    margin: 0 auto;
+}
+
+/* ── 보도자료 섹션 ── */
+.press-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 5% 100px;
+}
+
+.press-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--navy);
+}
+.press-header h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--navy);
+}
+.press-count {
+  font-size: 13px;
+  color: var(--text-light);
+}
+.press-count span {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ── 테이블 ── */
+.press-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.press-table thead tr {
+  background: var(--navy);
+  color: var(--white);
+}
+.press-table thead th {
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+}
+.press-table thead th:first-child { width: 70px; text-align: center; }
+.press-table thead th:last-child  { width: 160px; }
+
+.press-table tbody tr {
+  border-bottom: 1px solid #e8eef5;
+  transition: background 0.2s;
+}
+.press-table tbody tr:hover {
+  background: #f0f5fb;
+}
+.press-table tbody td {
+  padding: 18px 20px;
+  font-size: 14px;
+  color: var(--text-dark);
+  vertical-align: middle;
+}
+.press-table tbody td:first-child {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 13px;
+}
+
+/* ── 제목 링크 ── */
+.press-title-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-dark);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+  line-height: 1.5;
+}
+.press-title-link:hover {
+  color: var(--accent);
+}
+
+/* 출처 / 날짜 */
+.press-source {
+  font-size: 12px;
+  color: var(--text-light);
+}
+.press-date {
+  font-size: 13px;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+/* ── 페이지네이션 ── */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 50px;
+}
+.page-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--light);
+  font-size: 13px;
+  color: var(--text-mid);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  background: none;
+  text-decoration: none;
+}
+.page-btn:hover { border-color: var(--accent); color: var(--accent); }
+.page-btn.active { background: var(--navy); border-color: var(--navy); color: white; }
+
+/* ── 반응형 ── */
+@media (max-width: 900px) {
+  .press-table thead th:last-child,
+  .press-table tbody td:last-child { display: none; }
+}
+@media (max-width: 600px) {
+  .press-table thead th:nth-child(3),
+  .press-table tbody td:nth-child(3) { display: none; }
+}
