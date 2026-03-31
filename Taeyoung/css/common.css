@@ -145,6 +145,111 @@
   .has-dropdown:hover .dropdown {
     display: block;
   }
+
+  
+  /* ── HAMBURGER BUTTON ── */
+  .hamburger {
+    display: none;
+    grid-column: 3;   
+    justify-self: end;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+  .hamburger:hover { background: #f0f4fb; }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+    transform-origin: center;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── MOBILE MENU OVERLAY ── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 70px; /* nav 높이와 맞춤 */
+    left: 0; right: 0; bottom: 0;
+    background: var(--white);
+    overflow-y: auto;
+    z-index: 999;
+    padding: 1rem 0 2rem;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .mobile-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* 1depth 항목 */
+  .mobile-menu > ul > li {
+    display: block; /* common.css의 li { display: inline-block } 덮어쓰기 */
+  }
+  .mobile-menu > ul > li > span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+    border-bottom: 1px solid var(--gray);
+  }
+  .mobile-menu > ul > li > span .arrow {
+    font-size: 0.8rem;
+    transition: transform 0.2s;
+    color: var(--text-light);
+  }
+  .mobile-menu > ul > li.m-open > span .arrow {
+    transform: rotate(180deg);
+  }
+
+  /* 2depth 항목 */
+  .mobile-dropdown {
+    display: none;
+    background: #f4f6fa;
+    border-bottom: 1px solid var(--gray);
+    list-style: none;
+  }
+  .mobile-dropdown.open { display: block; }
+  .mobile-dropdown li {
+    display: block; /* inline-block 덮어쓰기 */
+  }
+  .mobile-dropdown li a {
+    display: block;
+    padding: 0.65rem 2.2rem;
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    border-bottom: 1px solid #eef0f5;
+    height: auto;
+    line-height: 1.5;
+    transition: color 0.15s, background 0.15s;
+  }
+  .mobile-dropdown li a:hover {
+    color: var(--navy);
+    background: #e4e9f2;
+  }
+ 
+
   /*히어로 공통*/
   .hero-sub {
       position: relative;
@@ -262,3 +367,9 @@
     .hero-stats { gap: 20px; }
     .nav-links { display: none; }
   }
+
+  @media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .mobile-menu { display: block; }
+}

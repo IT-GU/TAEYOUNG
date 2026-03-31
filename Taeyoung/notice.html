@@ -11,43 +11,84 @@
 </head>
 <body>
   <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="./index.html">
-      <img src="images/Taeyoung_logo.png" alt="로고"/>
-    </a>
-    <ul class="nav-links">
-      <li class="has-dropdown">
-        <a>태영소개</a>
-        <ul class="dropdown">
-          <li><a href="./about.html">회사소개</a></li>
-          <li><a href="./philosophy.html">기업이념</a></li>
-          <li><a href="./history.html">연혁</a></li>
-          <li><a href="./ci_introduction.html">CI소개</a></li>
-          <li><a href="./patent.html">특허와 상표권</a></li>
-          <li><a href="./map.html">오시는길</a></li>
-        </ul>
-      </li>
-      <li class="has-dropdown">
-        <a>계열사</a>
-        <ul class="dropdown">
-          <li><a href="./transport.html">운수사업본부</a></li>
-          <li><a href="./service.html">서비스사업본부</a></li>
-        </ul>
-      </li>
-      <li class="has-dropdown">
-        <a>홍보</a>
-        <ul class="dropdown">
-          <li><a href="./news.html">보도자료</a></li>
-        </ul>
-      </li>
-      <li class="has-dropdown">
-        <a>고객센터</a>
-        <ul class="dropdown">
-          <li><a href="./notice.html">공지사항</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+    <nav>
+      <a class="nav-logo" href="./index.html">
+        <img src="images/Taeyoung_logo.png" alt="로고"/>
+      </a>
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a>태영소개</a>
+          <ul class="dropdown">
+            <li><a href="./about.html">회사소개</a></li>
+            <li><a href="./philosophy.html">기업이념</a></li>
+            <li><a href="./history.html">연혁</a></li>
+            <li><a href="./ci_introduction.html">CI소개</a></li>
+            <li><a href="./patent.html">특허와 상표권</a></li>
+            <li><a href="./map.html">오시는길</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a>계열사</a>
+          <ul class="dropdown">
+            <li><a href="./transport.html">운수사업본부</a></li>
+            <li><a href="./service.html">서비스사업본부</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a>홍보</a>
+          <ul class="dropdown">
+            <li><a href="./news.html">보도자료</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a>고객센터</a>
+          <ul class="dropdown">
+            <li><a href="./notice.html">공지사항</a></li>
+          </ul>
+        </li>
+      </ul>
+       <!-- 햄버거 버튼 (모바일) -->
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+    <!-- 모바일 메뉴 -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li class="has-mobile-dropdown">
+          <span onclick="toggleMobileDropdown(this)">태영소개 <span class="arrow">▾</span></span>
+          <ul class="mobile-dropdown">
+            <li><a href="./about.html">회사소개</a></li>
+            <li><a href="./philosophy.html">기업이념</a></li>
+            <li><a href="./history.html">연혁</a></li>
+            <li><a href="./ci_introduction.html">CI소개</a></li>
+            <li><a href="./patent.html">특허와 상표권</a></li>
+            <li><a href="./map.html">오시는길</a></li>
+          </ul>
+        </li>
+        <li class="has-mobile-dropdown">
+          <span onclick="toggleMobileDropdown(this)">계열사 <span class="arrow">▾</span></span>
+          <ul class="mobile-dropdown">
+            <li><a href="./transport.html">운수사업본부</a></li>
+            <li><a href="./service.html">서비스사업본부</a></li>
+          </ul>
+        </li>
+        <li class="has-mobile-dropdown">
+          <span onclick="toggleMobileDropdown(this)">홍보 <span class="arrow">▾</span></span>
+          <ul class="mobile-dropdown">
+            <li><a href="./news.html">보도자료</a></li>
+          </ul>
+        </li>
+        <li class="has-mobile-dropdown">
+          <span onclick="toggleMobileDropdown(this)">고객센터 <span class="arrow">▾</span></span>
+          <ul class="mobile-dropdown">
+            <li><a href="./notice.html">공지사항</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   <!-- 히어로 -->
   <section class="hero-sub">
     <div class="hero-inner">
@@ -104,6 +145,38 @@
         </div>
     </footer>
   
-
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+    
+      // 햄버거 토글
+      hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('open');
+        if (isOpen) {
+          mobileMenu.classList.add('open');
+          document.body.style.overflow = 'hidden'; // 스크롤 잠금
+        } else {
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      });
+    
+      // 모바일 드롭다운 토글
+      function toggleMobileDropdown(el) {
+        const li = el.parentElement;
+        const dropdown = li.querySelector('.mobile-dropdown');
+        const isOpen = li.classList.toggle('m-open');
+        dropdown.classList.toggle('open', isOpen);
+      }
+    
+      // 창 크기 변경 시 모바일 메뉴 닫기
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      });
+    </script>
 </body>
 </html>
