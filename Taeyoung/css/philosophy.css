@@ -51,10 +51,10 @@
 }
 
 .philosophy-card {
-  display: flex;
-  justify-content: center;
   font-size: 40px;
   color: var(--red);
+  text-align: center;
+
 }
 
 .philosophy-desc {
@@ -136,6 +136,15 @@
   user-select: none;
 }
 
+/* 구분선 */
+.philosophy-divider {
+    width: 70%;
+    height: 1px;
+    background: rgba(44,59,82,0.08);
+    margin: 120px auto;
+}
+
+
 .policy-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -197,6 +206,7 @@
   .policy-cards {
     grid-template-columns: repeat(2, 1fr); /* 3개 → 2열 */
   }
+
 }
 
 /* 모바일 (768px) */
@@ -221,5 +231,17 @@
 
   .phil-hanja, .policy-name {
     font-size: 36px;
+  }
+
+  .philosophy-divider{
+    width: 90%;
+  }
+
+  .philosophy-card {
+    font-size: 20px;
+  }
+
+  .philosophy-desc {
+    font-size: 13px;
   }
 }
